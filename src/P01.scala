@@ -15,6 +15,7 @@ object P01 {
   /** solution using user defined function. */
   def lastEl[E](list: List[E]): E = {
     list match {
+      case Nil        => throw new CustomException("Empty list! Not allowed!")
       case List(head) => head
       case head::tail => lastEl(tail)
       case _          => throw new CustomException("Whoooops! Something went wrong!")
@@ -42,4 +43,3 @@ object P01 {
     }
   }
 }
-  
