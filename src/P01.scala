@@ -5,14 +5,19 @@ object P01 {
   case class CustomException(msg: String) extends Exception(msg)
 
   /** solution using built-in function. */
-  def bifLastEl[E](list: List[E]): E = list.last
+  def bifLastEl[E](list: List[E]): E = {
+    list match {
+      case Nil => throw new CustomException("Empty list! Not allowed!")
+      case _   => list.last
+    }
+  }
 
   /** solution using user defined function. */
   def lastEl[E](list: List[E]): E = {
     list match {
       case List(head) => head
       case head::tail => lastEl(tail)
-      case _          => throw new CustomException("Something went wrong!")
+      case _          => throw new CustomException("Whoooops! Something went wrong!")
     }
   }
 
@@ -24,15 +29,15 @@ object P01 {
       System.exit(1)
     } else if (args.length == 1) {
       val userList = args(0).stripPrefix("(").stripSuffix(")").split(",").map(_.trim).toList
-      println(s"Working with the list you have provided: $userList")
+      println("Working with the list you have provided: " + userList.toString().stripPrefix("List"))
       println("The last element of your list is: " + this.lastEl(userList))
     } else {
       try {
-        assert(this.lastEl(ExampleList) == 222)
+        assert(this.lastEl(ExampleList) == 221)
       } catch {
         case _: AssertionError => throw new CustomException("Built in assertion failed!")
       }
-      println(s"List argument was not provided. Working with the built in example: $ExampleList")
+      println("List argument was not provided. Working with the built in example: " + ExampleList.toString().stripPrefix("List"))
       println("The last element of the list is: " + this.bifLastEl(ExampleList))
     }
   }
