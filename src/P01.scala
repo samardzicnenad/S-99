@@ -7,7 +7,7 @@ object P01 {
   /** solution using built-in function. */
   def bifLastEl[E](list: List[E]): E = {
     list match {
-      case Nil => throw new CustomException("Empty list! Not allowed!")
+      case Nil => throw CustomException("Empty list! Not allowed!")
       case _   => list.last
     }
   }
@@ -15,10 +15,10 @@ object P01 {
   /** solution using user defined function. */
   def lastEl[E](list: List[E]): E = {
     list match {
-      case Nil        => throw new CustomException("Empty list! Not allowed!")
+      case Nil        => throw CustomException("Empty list! Not allowed!")
       case List(head) => head
       case head::tail => lastEl(tail)
-      case _          => throw new CustomException("Whoooops! Something went wrong!")
+      case _          => throw CustomException("Whoooops! Something went wrong!")
     }
   }
 
@@ -33,11 +33,6 @@ object P01 {
       println("Working with the list you have provided: " + userList.toString().stripPrefix("List"))
       println("The last element of your list is: " + this.lastEl(userList))
     } else {
-      try {
-        assert(this.lastEl(ExampleList) == 221)
-      } catch {
-        case _: AssertionError => throw new CustomException("Built in assertion failed!")
-      }
       println("List argument was not provided. Working with the built in example: " + ExampleList.toString().stripPrefix("List"))
       println("The last element of the list is: " + this.bifLastEl(ExampleList))
     }
