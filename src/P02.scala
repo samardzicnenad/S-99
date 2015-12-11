@@ -7,8 +7,8 @@ object P02 {
   /** solution using built-in function. */
   def bifNextToLast[E](list: List[E]): E = {
     list match {
-      case Nil         => throw new CustomException("Empty list! Not allowed!")
-      case head :: Nil => throw new CustomException("List has only one element! Not allowed!")
+      case Nil         => throw CustomException("Empty list! Not allowed!")
+      case head :: Nil => throw CustomException("List has only one element! Not allowed!")
       case _           => list.init.last
     }
   }
@@ -16,11 +16,11 @@ object P02 {
   /** solution using user defined function. */
   def nextToLast[E](list: List[E]): E = {
     list match {
-      case Nil              => throw new CustomException("Empty list! Not allowed!")
-      case head :: Nil      => throw new CustomException("List has only one element! Not allowed!")
+      case Nil              => throw CustomException("Empty list! Not allowed!")
+      case head :: Nil      => throw CustomException("List has only one element! Not allowed!")
       case head :: _ :: Nil => head
       case _::tail          => nextToLast(tail)
-      case _                => throw new CustomException("Whoooops! Something went wrong!")
+      case _                => throw CustomException("Whoooops! Something went wrong!")
     }
   }
 
@@ -35,11 +35,6 @@ object P02 {
       println("Working with the list you have provided: " + userList.toString().stripPrefix("List"))
       println("The next to the last element of your list is: " + this.nextToLast(userList))
     } else {
-      try {
-        assert(this.bifNextToLast(ExampleList) == -23)
-      } catch {
-        case _: AssertionError => throw new CustomException("Built in assertion failed!")
-      }
       println("List argument was not provided. Working with the built in example: " + ExampleList.toString().stripPrefix("List"))
       println("The next to the last element of the list is: " + this.bifNextToLast(ExampleList))
     }
