@@ -29,6 +29,7 @@ object P01 {
       println("Application argument not valid!\nPlease, provide only one list element!\nQuitting execution...")
       System.exit(1)
     } else if (args.length == 1) {
+      /** dummy element added and removed to overcome the "".split(",") issue */
       val userList = ("dummy," + args(0).stripPrefix("List(").stripSuffix(")")).split(",").drop(1).map(_.trim).toList
       println("Working with the list you have provided: " + userList.toString())
       println("The last element of your list is: " + lastEl(userList))
