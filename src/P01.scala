@@ -29,12 +29,12 @@ object P01 {
       println("Application argument not valid!\nPlease, provide only one list element!\nQuitting execution...")
       System.exit(1)
     } else if (args.length == 1) {
-      val userList = args(0).stripPrefix("(").stripSuffix(")").split(",").map(_.trim).toList
-      println("Working with the list you have provided: " + userList.toString().stripPrefix("List"))
-      println("The last element of your list is: " + this.lastEl(userList))
+      val userList = ("dummy," + args(0).stripPrefix("List(").stripSuffix(")")).split(",").drop(1).map(_.trim).toList
+      println("Working with the list you have provided: " + userList.toString())
+      println("The last element of your list is: " + lastEl(userList))
     } else {
-      println("List argument was not provided. Working with the built in example: " + ExampleList.toString().stripPrefix("List"))
-      println("The last element of the list is: " + this.bifLastEl(ExampleList))
+      println("List argument was not provided. Working with the built in example: " + ExampleList.toString())
+      println("The last element of the list is: " + bifLastEl(ExampleList))
     }
   }
 }
