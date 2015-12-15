@@ -16,3 +16,5 @@ Here's the list of the problems:
   - expects one command line argument - a list
 - P03: Find the Kth element of a list.
   - expects two command line arguments - a list and an integer
+- P04: Find the number of elements of a list.
+  - expects one command line argument - a list
