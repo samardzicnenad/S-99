@@ -1,4 +1,4 @@
-/** P04 (*) Find the number of elements of a list. */
+/** P04: Find the number of elements of a list. */
 import Helper._
 
 object P04 {
