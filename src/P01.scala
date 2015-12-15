@@ -32,7 +32,7 @@ object P01 {
       System.exit(1)
     } else if (args.length == 1) {
       if (!(args(0).startsWith("List(") && args(0).endsWith(")"))) {
-        println("Application argument not valid!\nYour list must start with '\"List(' and end with ')'!\nQuitting execution...")
+        println("Application argument not valid!\nYour list must start with \"List(\" and end with \")\"!\nQuitting execution...")
         System.exit(1)
       }
       val userList = parseList(args(0).stripPrefix("List(").stripSuffix(")"), false, false, 0, "", Nil)
