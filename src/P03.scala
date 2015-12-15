@@ -1,4 +1,6 @@
 /** P03: Find the Kth element of a list. */
+import Helper._
+
 object P03 {
 
   /** defined the custom exception case class */
@@ -29,9 +31,13 @@ object P03 {
         System.exit(1)
       } else {
         println("Arguments were not provided. Working with the built in example:\nList: " + ExampleList.toString().stripPrefix("List") + "; Index: " + ExampleIndex + ";")
-        println("The Kth element (K=" + ExampleIndex + ") of the list is: " + this.bifKthEl(ExampleList, ExampleIndex))
+        println("The Kth element (K=" + ExampleIndex + ") of the list is: " + bifKthEl(ExampleList, ExampleIndex))
       }
     } else {
+      if (!(args(0).startsWith("List(") && args(0).endsWith(")"))) {
+        println("Application list argument not valid!\nYour list must start with \"List(\" and end with \")\"!\nQuitting execution...")
+        System.exit(1)
+      }
       try {
         val dummy = args(1).toInt
       } catch {
@@ -45,13 +51,13 @@ object P03 {
         println("Index must be an integer greater than 0!\nQuitting execution...")
         System.exit(1)
       }
-      val userList = args(0).stripPrefix("(").stripSuffix(")").split(",").map(_.trim).toList
+      val userList = parseList(args(0).stripPrefix("List(").stripSuffix(")"), false, false, 0, "", Nil)
       if (userIndex > userList.length) {
         println("Index is greater than the list length! Not allowed!\nQuitting execution...")
         System.exit(1)
       }
       println("Working with the list you have provided: " + userList.toString().stripPrefix("List"))
-      println("The Kth element (K=" + userIndex + ") of your list is: " + this.KthEl(userList, userIndex, Nil))
+      println("The Kth element (K=" + userIndex + ") of your list is: " + KthEl(userList, userIndex, Nil))
     }
   }
 }
