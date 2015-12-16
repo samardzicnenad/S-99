@@ -8,6 +8,7 @@ My intentions is to enable users to run all of the examples in two modes:
   
 Note:
   The solutions have been conceptualized to work with a generic type list. However, command line arguments are read as strings, so I have created a [**Helper object**](src/Helper.scala) with a list parser method. The result of the method will be a list of Strings.  
+Make sure that the Helper class in on your classpath.  
   
 Here's the list of the problems:  
 - P01: Find the last element of a list.
