@@ -23,7 +23,7 @@ object P04 {
 
   def main(args: Array[String]) = {
     if (args.length > 1) {
-      println("Application argument not valid!\nPlease, provide only one list element!\nQuitting execution...")
+      println("Application arguments not valid!\nPlease, provide only one list element!\nQuitting execution...")
       System.exit(1)
     } else if (args.length == 1) {
       if (!(args(0).startsWith("List(") && args(0).endsWith(")"))) {
