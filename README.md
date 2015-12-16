@@ -18,3 +18,5 @@ Here's the list of the problems:
   - expects two command line arguments - a list and an integer
 - P04: Find the number of elements of a list.
   - expects one command line argument - a list
+- P05: Reverse a list.
+  - expects one command line argument - a list
