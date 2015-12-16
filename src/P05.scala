@@ -1,25 +1,19 @@
-/** P01: Find the last element of a list. */
+/** P05: Reverse a list. */
 import Helper._
 
-object P01 {
+object P05 {
 
   /** defined the custom exception case class */
   case class CustomException(msg: String) extends Exception(msg)
 
   /** solution using built-in function. */
-  def bifLastEl[E](list: List[E]): E = {
-    list match {
-      case Nil => throw CustomException("Empty list! Not allowed!")
-      case _   => list.last
-    }
-  }
+  def bifReverse[E](list: List[E]): List[E] = list.reverse
 
   /** solution using user defined function. */
-  def lastEl[E](list: List[E]): E = {
+  def reverse[E](list: List[E], acc: List[E]): List[E] = {
     list match {
-      case Nil        => throw CustomException("Empty list! Not allowed!")
-      case List(head) => head
-      case head::tail => lastEl(tail)
+      case List()     => acc    
+      case head::tail => reverse(tail, List()):::List(head)
       case _          => throw CustomException("Whoooops! Something went wrong!")
     }
   }
@@ -37,10 +31,10 @@ object P01 {
       }
       val userList = parseList(args(0).stripPrefix("List(").stripSuffix(")"), false, false, 0, "", Nil)
       println("Working with the list you have provided: " + userList.toString())
-      println("The last element of your list is: " + lastEl(userList))
+      println("Your reversed list is: " + reverse(userList, Nil))
     } else {
       println("List argument was not provided. Working with the built in example: " + ExampleList.toString())
-      println("The last element of the list is: " + bifLastEl(ExampleList))
+      println("The reversed list is: " + bifReverse(ExampleList))
     }
   }
 }
