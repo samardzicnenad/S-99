@@ -21,3 +21,8 @@ Here's the list of the problems:
   - expects one command line argument - a list
 - P05: Reverse a list.
   - expects one command line argument - a list
+- P06: Find out whether a list is a palindrome.
+  - expects one command line argument - a list
+  - Notes:
+    - Make sure that the P05 class in on your classpath too
+    - Double quotes from your list will be stripped
