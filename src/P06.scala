@@ -28,10 +28,10 @@ object P06 {
       }
       val userList = parseList(args(0).stripPrefix("List(").stripSuffix(")"), false, false, 0, "", Nil)
       println("Working with the list you have provided: " + userList.toString())
-      println("The statement: \"The list is palindrome\" is " + isPalindrome(userList))
+      println("The statement: \"The list you have provided is palindrome\" is " + isPalindrome(userList))
     } else {
       println("List argument was not provided. Working with the built in example: " + ExampleList.toString())
-      println("The statement: \"The list is palindrome\" is " + bifIsPalindrome(ExampleList))
+      println("The statement: \"The built in example list is palindrome\" is " + bifIsPalindrome(ExampleList))
     }
   }
 }
