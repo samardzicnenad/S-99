@@ -4,9 +4,6 @@ import P05._
 
 object P06 {
 
-  /** defined the custom exception case class */
-  case class CustomException(msg: String) extends Exception(msg)
-
   /** solution using built-in function. */
   def bifIsPalindrome[E](list: List[E]): Boolean = list == list.reverse
 
