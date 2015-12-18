@@ -35,7 +35,7 @@ object P07 {
             }
         }
       case head::tail => flattenList(List(head), List()):::flattenList(tail, List())
-      case _          => throw new NoSuchElementException
+      case _          => throw CustomException("Whoooops! Something went wrong!")
     }
   }
 
