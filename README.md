@@ -26,3 +26,5 @@ Here's the list of the problems:
   - Notes:
     - Make sure that the P05 class in on your classpath too
     - Double quotes from your list will be stripped
+- P07: Flatten a nested list structure.
+  - expects one command line argument - a list
