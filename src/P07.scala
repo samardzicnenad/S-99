@@ -20,7 +20,7 @@ object P07 {
   /** solution using user defined function. */
   def flattenList(list: List[String], acc: List[String]): List[String] = {
     list match {
-      case Nil => acc
+      case Nil        => acc
       case List(head) => {
           if (head.startsWith("List(")) {
             flattenList(parseList(List(head).mkString(", ").stripPrefix("List(").stripSuffix(")"),
