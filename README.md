@@ -32,3 +32,5 @@ Here's the list of the problems:
     - Double quotes from your list will be stripped
 - P07: Flatten a nested list structure.
   - expects one command line argument - a list
+- P08: Eliminate consecutive duplicates of list elements.
+  - expects one command line argument - a list
