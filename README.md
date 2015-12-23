@@ -34,3 +34,5 @@ Here's the list of the problems:
   - expects one command line argument - a list
 - P08: Eliminate consecutive duplicates of list elements.
   - expects one command line argument - a list
+- P09: Pack consecutive duplicates of list elements into sublists.
+  - expects one command line argument - a list
