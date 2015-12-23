@@ -6,8 +6,11 @@ object P07 {
   /** defined the custom exception case class */
   case class CustomException(msg: String) extends Exception(msg)
 
-  /** A solution using built-in function isn't possible since it's not known if 
-      List[E] is a traversable collection, which is what flatten expects */
+  /** A solution using built-in function */
+  def bifFlattenList(list: List[Any]): List[Any] = list flatMap {
+    case subList: List[_] => bifFlattenList(subList)
+    case e                => List(e)
+  }
   
   /** transform ExampleList to a list of Strings */
   def transform[E](list: List[E]): List[String] = parseList(list.mkString(", "),
@@ -55,7 +58,7 @@ object P07 {
       println("Your list flattened makes: " + flattenList(userList, Nil))
     } else {
       println("List argument was not provided. Working with the built in example: " + ExampleList.toString())
-      println("The list flattened makes: " + flattenList(transform(ExampleList), Nil))
+      println("The list flattened makes: " + bifFlattenList(ExampleList))
     }
   }
 }
